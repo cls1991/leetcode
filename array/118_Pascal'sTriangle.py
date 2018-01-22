@@ -45,8 +45,3 @@ class Solution(object):
             triangles.append(triangle)
 
         return triangles
-
-
-if __name__ == '__main__':
-    solution = Solution()
-    print(solution.generate(-1))

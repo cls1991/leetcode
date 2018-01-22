@@ -25,9 +25,15 @@ class Solution(object):
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-        pass
+        if not nums:
+            return
 
+        first_zero_pos = 0
+        ll = len(nums)
 
-if __name__ == '__main__':
-    solution = Solution()
-    solution.moveZeroes([[0, 1, 0, 3, 12]])
+        for i in range(1, ll):
+            if nums[i] != 0 and nums[first_zero_pos] == 0:
+                nums[first_zero_pos], nums[i] = nums[i], nums[first_zero_pos]
+                first_zero_pos += 1
+            elif nums[first_zero_pos] != 0:
+                first_zero_pos = i

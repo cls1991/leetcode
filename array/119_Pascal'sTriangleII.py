@@ -26,21 +26,14 @@ class Solution(object):
             return [1]
         elif rowIndex == 1:
             return [1, 1]
-        elif rowIndex == 2:
-            return [1, 2, 1]
 
-        triangle = [1, 2, 1]
-        for row in range(2, rowIndex):
+        triangle = [1, 1]
+        for row in range(2, rowIndex + 1):
             a = triangle[0]
             for column in range(1, row):
                 b = triangle[column]
                 triangle[column] = a + b
                 a = b
-        triangle.append(1)
+            triangle.append(1)
 
         return triangle
-
-
-if __name__ == '__main__':
-    solution = Solution()
-    print(solution.getRow(3))
