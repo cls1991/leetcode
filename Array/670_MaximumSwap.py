@@ -5,7 +5,8 @@
     题目链接: https://leetcode.com/problems/maximum-swap/description.
     题目描述:
 
-    Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the maximum valued number you could get.
+    Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the
+    maximum valued number you could get.
 
     Example 1:
         Input: 2736
