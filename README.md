@@ -1,5 +1,5 @@
 # leetcode
-leetcode刷题, 体型分类参照leetcode默认分类方式.
+leetcode刷题, 直接用的leetcode分类方式.
 
 - [x] 2018-01-23: 数组类题目已刷完
 -  字符串
