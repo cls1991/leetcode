@@ -67,8 +67,3 @@ class Solution(object):
             matrix[idx] = [sub_matrix[key] for key in sorted(sub_matrix.keys())]
 
         return matrix
-
-
-if __name__ == '__main__':
-    solution = Solution()
-    print(solution.generateMatrix(3))
