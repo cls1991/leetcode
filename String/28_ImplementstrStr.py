@@ -22,7 +22,7 @@
 
 
 class Solution(object):
-    def strStr(self, haystack, needle):
+    def strStr_v1(self, haystack, needle):
         """
         :type haystack: str
         :type needle: str
@@ -34,36 +34,14 @@ class Solution(object):
         la = len(haystack)
         lb = len(needle)
 
-        if lb > la:
-            return -1
-
-        start = 0
-        cp = 0
-        ct = -1
-        while start < la:
-            if cp == lb:
-                return ct
-            if haystack[start] == needle[cp]:
-                if cp == 0:
-                    ct = start
-                cp += 1
+        for i in range(la - lb + 1):
+            start = i
+            for j in range(lb):
+                if haystack[start] != needle[j]:
+                    break
                 start += 1
-            else:
-                if cp == 0:
-                    start += 1
-                elif start != cp:
-                    print(start, cp)
-                    start += lb
-                    cp = 0
-                    ct = 0
-                else:
-                    return ct
 
-        return ct
+            if start - i == lb:
+                return i
 
-
-if __name__ == '__main__':
-    solution = Solution()
-    print(solution.strStr('hello', 'll'))
-    print(solution.strStr('aaaaa', 'baa'))
-    print(solution.strStr('mississippi', 'issip'))
+        return -1
