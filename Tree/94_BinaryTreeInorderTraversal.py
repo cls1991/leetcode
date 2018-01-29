@@ -53,10 +53,10 @@ class Solution(object):
     def iterative_inorder(self, root, ans):
         stack = []
         while root or stack:
-            if root:
+            while root:
                 stack.append(root)
                 root = root.left
-            else:
+            if stack:
                 node = stack.pop()
                 ans.append(node.val)
                 root = node.right
