@@ -121,6 +121,7 @@
 * 94\. [Binary Tree Inorder Traversa](https://leetcode.com/problems/binary-tree-inorder-traversal/description)
 * 95\. [Unique Binary Search Trees II](https://leetcode.com/problems/unique-binary-search-trees-ii/description)
 * 96\. [Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/description)
+* 98\. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/description)
 * 99\. [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/description)
 * 100\. [Same Tree](https://leetcode.com/problems/same-tree/description)
 * 102\. [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description)
