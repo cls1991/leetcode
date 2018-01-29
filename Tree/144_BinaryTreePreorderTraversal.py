@@ -36,27 +36,29 @@ class Solution(object):
         :rtype: List[int]
         """
         ans = []
-        self.recursive_inorder(root, ans)
-        self.iterative_inorder(root, ans)
+        self.recursive_preorder(root, ans)
+        self.iterative_preorder(root, ans)
 
         return ans
 
     # 递归解法, 基本操作
-    def recursive_inorder(self, root, ans):
+    def recursive_preorder(self, root, ans):
         if not root:
             return
         ans.append(root.val)
-        self.recursive_inorder(root.left, ans)
-        self.recursive_inorder(root.right, ans)
+        self.recursive_preorder(root.left, ans)
+        self.recursive_preorder(root.right, ans)
 
-    # 非递归解法, 与中序类似
-    def iterative_inorder(self, root, ans):
+    # 非递归解法, 辅助栈
+    # 左子树入栈, 右子树的左子树入栈
+    def iterative_preorder(self, root, ans):
         stack = []
         while root or stack:
-            if root:
+            while root:
                 ans.append(root.val)
+                # 保存节点, 为了之后遍历其右子树
                 stack.append(root)
                 root = root.left
-            else:
-                node = stack.pop()
-                root = node.right
+            if stack:
+                root = stack.pop()
+                root = root.right

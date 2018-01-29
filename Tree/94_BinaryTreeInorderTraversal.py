@@ -49,8 +49,7 @@ class Solution(object):
         ans.append(root.val)
         self.recursive_inorder(root.right, ans)
 
-    # 非递归解法, 需要借助栈
-    # 遍历左孩子节点, 直至为空, 出栈, 访问右孩子节点, 依次循环, 至所有节点访问完毕
+    # 非递归解法, 与先序类似
     def iterative_inorder(self, root, ans):
         stack = []
         while root or stack:
