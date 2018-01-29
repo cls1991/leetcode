@@ -2,10 +2,10 @@
 
 
 """
-    题目链接: https://leetcode.com/problems/binary-tree-inorder-traversal/description.
+    题目链接: https://leetcode.com/problems/binary-tree-preorder-traversal/description.
     题目描述:
 
-    Given a binary tree, return the inorder traversal of its nodes' values.
+    Given a binary tree, return the preorder traversal of its nodes' values.
 
     For example:
         Given binary tree [1,null,2,3],
@@ -14,7 +14,7 @@
              2
             /
            3
-        return [1,3,2].
+        return [1,2,3].
 
     Note: Recursive solution is trivial, could you do it iteratively?
 
@@ -30,7 +30,7 @@ class TreeNode(object):
 
 
 class Solution(object):
-    def inorderTraversal(self, root):
+    def preorderTraversal(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
@@ -45,19 +45,18 @@ class Solution(object):
     def recursive_inorder(self, root, ans):
         if not root:
             return
-        self.recursive_inorder(root.left, ans)
         ans.append(root.val)
+        self.recursive_inorder(root.left, ans)
         self.recursive_inorder(root.right, ans)
 
-    # 非递归解法, 需要借助栈
-    # 遍历左孩子节点, 直至为空, 出栈, 访问右孩子节点, 依次循环, 至所有节点访问完毕
+    # 非递归解法, 与中序类似
     def iterative_inorder(self, root, ans):
         stack = []
         while root or stack:
             if root:
+                ans.append(root.val)
                 stack.append(root)
                 root = root.left
             else:
                 node = stack.pop()
-                ans.append(node.val)
                 root = node.right
