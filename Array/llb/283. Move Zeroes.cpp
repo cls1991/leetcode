@@ -26,7 +26,7 @@ public:
             }
         }
         
-        //index所在位置就是所有非0的结尾
+        //index所在位置就是所有非0的结尾 
         for (; index<nums.size(); index++){
             nums[index] = 0;
         }
