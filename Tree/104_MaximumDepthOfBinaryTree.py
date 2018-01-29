@@ -40,7 +40,7 @@ class Solution(object):
             return 0
 
         # return self.recursive_tree_of_max_depth(root)
-        return self.iterative_tree_of_max_tree(root)
+        return self.iterative_tree_of_max_depth(root)
 
     # 递归解法, 基本操作
     def recursive_tree_of_max_depth(self, root):
@@ -50,8 +50,8 @@ class Solution(object):
         return max(self.recursive_tree_of_max_depth(root.left), self.recursive_tree_of_max_depth(root.right)) + 1
 
     # 非递归解法
-    # 类似于二叉树深度遍历
-    def iterative_tree_of_max_tree(self, root):
+    # 类似于二叉树的层序遍历
+    def iterative_tree_of_max_depth(self, root):
         queue = []
         front = 0
         rear = 1
