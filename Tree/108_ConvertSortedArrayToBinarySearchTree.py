@@ -40,4 +40,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: TreeNode
         """
-        
+        return self.construct_binary_search_tree(nums, 0, len(nums) - 1)
+
+    # 二分, 递归建立二叉搜索树
+    def construct_binary_search_tree(self, nums, nl, nr):
+        if nl > nr:
+            return None
+
+        mid = nl + (nr - nl) / 2
+        left = self.construct_binary_search_tree(nums, nl, mid - 1)
+        right = self.construct_binary_search_tree(nums, mid + 1, nr)
+        root = TreeNode(nums[mid])
+        root.left, root.right = left, right
+
+        return root
