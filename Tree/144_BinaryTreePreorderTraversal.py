@@ -38,6 +38,7 @@ class Solution(object):
         ans = []
         self.recursive_preorder(root, ans)
         self.iterative_preorder(root, ans)
+        self.morris_preorder(root, ans)
 
         return ans
 
@@ -45,6 +46,7 @@ class Solution(object):
     def recursive_preorder(self, root, ans):
         if not root:
             return
+
         ans.append(root.val)
         self.recursive_preorder(root.left, ans)
         self.recursive_preorder(root.right, ans)
@@ -62,3 +64,28 @@ class Solution(object):
             if stack:
                 root = stack.pop()
                 root = root.right
+
+    # 非递归解法
+    # 不需要辅助栈, 充分利用叶子节点的空闲右指针, 指向当前节点的中序后继节点
+    # 空间复杂度: O(1), 时间复杂度: O(n)
+    def morris_preorder(self, root, ans):
+        if not root:
+            return
+
+        cur = root
+        while cur:
+            if not cur.left:
+                ans.append(cur.val)
+                cur = cur.right
+            else:
+                pre = cur.left
+                while pre.right and pre.right != cur:
+                    pre = pre.right
+
+                if pre.right == cur:
+                    pre.right = None
+                    cur = cur.right
+                else:
+                    ans.append(cur.val)
+                    pre.right = cur
+                    cur = cur.left

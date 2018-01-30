@@ -36,8 +36,9 @@ class Solution(object):
         :rtype: List[int]
         """
         ans = []
-        self.recursive_inorder(root, ans)
-        self.iterative_inorder(root, ans)
+        # self.recursive_inorder(root, ans)
+        # self.iterative_inorder(root, ans)
+        self.morris_inorder(root, ans)
 
         return ans
 
@@ -45,11 +46,13 @@ class Solution(object):
     def recursive_inorder(self, root, ans):
         if not root:
             return
+
         self.recursive_inorder(root.left, ans)
         ans.append(root.val)
         self.recursive_inorder(root.right, ans)
 
     # 非递归解法, 与先序类似
+    # 辅助栈
     def iterative_inorder(self, root, ans):
         stack = []
         while root or stack:
@@ -60,3 +63,28 @@ class Solution(object):
                 node = stack.pop()
                 ans.append(node.val)
                 root = node.right
+
+    # 非递归解法
+    # 不需要辅助栈, 充分利用叶子节点的空闲右指针, 指向当前节点的中序后继节点
+    # 空间复杂度: O(1), 时间复杂度: O(n)
+    def morris_inorder(self, root, ans):
+        if not root:
+            return
+
+        cur = root
+        while cur:
+            if not cur.left:
+                ans.append(cur.val)
+                cur = cur.right
+            else:
+                pre = cur.left
+                while pre.right and pre.right != cur:
+                    pre = pre.right
+
+                if pre.right == cur:
+                    ans.append(cur.val)
+                    pre.right = None
+                    cur = cur.right
+                else:
+                    pre.right = cur
+                    cur = cur.left
