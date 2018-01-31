@@ -38,20 +38,14 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+        return self.dfs(root, 0)
+
+    def dfs(self, root, sub):
         if not root:
             return 0
 
-        sub = 0
-        total = []
-        self.dfs(root, sub, total)
-
-        return sum(total)
-
-    def dfs(self, root, sub, total):
         sub = 10 * sub + root.val
         if not root.left and not root.right:
-            total.append(sub)
-        if root.left:
-            self.dfs(root.left, sub, total)
-        if root.right:
-            self.dfs(root.right, sub, total)
+            return sub
+
+        return self.dfs(root.left, sub) + self.dfs(root.right, sub)
