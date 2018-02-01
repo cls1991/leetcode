@@ -43,7 +43,8 @@ class Solution(object):
         if not root:
             return []
 
-        ans = sub = []
+        ans = []
+        sub = []
         self.recursive_path_sum(root, sum, sub, ans)
 
         return ans
