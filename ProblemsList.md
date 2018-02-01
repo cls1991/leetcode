@@ -196,6 +196,7 @@
 * 47\. [Permutations II](https://leetcode.com/problems/permutations-ii/description)
 * 51\. [N-Queens](https://leetcode.com/problems/n-queens/description)
 * 52\. [N-Queens II](https://leetcode.com/problems/n-queens-ii/description)
+* 78\. [Subsets](https://leetcode.com/problems/subsets/description)
 * 79\. [Word Search](https://leetcode.com/problems/word-search/description)
 * 90\. [Subsets II](https://leetcode.com/problems/subsets-ii/description)
 * 93\. [Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/description)
