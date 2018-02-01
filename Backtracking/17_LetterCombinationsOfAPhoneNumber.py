@@ -23,4 +23,20 @@ class Solution(object):
         :type digits: str
         :rtype: List[str]
         """
-        pass
+        if not digits:
+            return []
+
+        dtm = {'0': '', '1': '', '2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno', '7': 'pqrs', '8': 'tuv',
+               '9': 'wxyz'}
+        ans = []
+        self.backtrack(digits, dtm, 0, '', ans)
+
+        return ans
+
+    def backtrack(self, digits, dtm, idx, s, ans):
+        if len(s) == len(digits):
+            ans.append(s)
+        else:
+            for i in range(idx, len(digits)):
+                for c in dtm[digits[i]]:
+                    self.backtrack(digits, dtm, i + 1, s + c, ans)
