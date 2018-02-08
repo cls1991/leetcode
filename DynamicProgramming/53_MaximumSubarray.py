@@ -36,8 +36,7 @@ class Solution(object):
         cur = 0
         for i in range(len(nums)):
             cur += nums[i]
-            if cur > ans:
-                ans = cur
+            ans = max(ans, cur)
             if cur < 0:
                 cur = 0
 
