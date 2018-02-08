@@ -29,14 +29,8 @@ class Solution(object):
     # 搜索所有的上升子序列, 求和
     def dynamic_max_profit(self, prices):
         ans = 0
-        start = 0
         for i in range(1, len(prices)):
-            delta = prices[i] - prices[i - 1]
-            if delta < 0:
-                ans += prices[i - 1] - prices[start]
-                start = i
-
-        if prices[-1] > prices[start]:
-            ans += prices[-1] - prices[start]
+            if prices[i] > prices[i - 1]:
+                ans += prices[i] - prices[i - 1]
 
         return ans
